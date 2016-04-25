@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.utils.functional import SimpleLazyObject
-from django_geoip.base import storage_class
+from django_geoip.base import storage_class, location_model
 
 
 def get_location(request):
