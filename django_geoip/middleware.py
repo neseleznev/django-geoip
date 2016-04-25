@@ -15,6 +15,7 @@ class LocationMiddleware(object):
     def process_request(self, request):
         """ Don't detect location, until we request it implicitly """
         request.location = SimpleLazyObject(lambda: get_location(request))
+        request.available_locations = SimpleLazyObject(lambda: location_model.get_available_locations())
 
     def process_response(self, request, response):
         """ Do nothing, if process_request never completed (redirect)"""
